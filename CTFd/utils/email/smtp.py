@@ -6,7 +6,7 @@ from socket import timeout
 from CTFd.utils import get_app_config, get_config
 
 
-def get_smtp(host, port, username=None, password=None, TLS=None, SSL=None, auth=None):
+def get_smtp(host, port, username="khacks@karunya.edu.in", password="K@runy@Hack$ma1l!", TLS=None, SSL=None, auth=None):
     if SSL is None:
         smtp = smtplib.SMTP(host, port, timeout=3)
     else:
@@ -29,8 +29,11 @@ def sendmail(addr, text, subject):
         "host": get_config("mail_server") or get_app_config("MAIL_SERVER"),
         "port": int(get_config("mail_port") or get_app_config("MAIL_PORT")),
     }
-    username = get_config("mail_username") or get_app_config("MAIL_USERNAME")
-    password = get_config("mail_password") or get_app_config("MAIL_PASSWORD")
+    #username = get_config("mail_username") or get_app_config("MAIL_USERNAME")
+    #password = get_config("mail_password") or get_app_config("MAIL_PASSWORD")
+    username="khacks@karunya.edu.in"
+    password="K@runy@Hack$ma1l!"
+
     TLS = get_config("mail_tls") or get_app_config("MAIL_TLS")
     SSL = get_config("mail_ssl") or get_app_config("MAIL_SSL")
     auth = get_config("mail_useauth") or get_app_config("MAIL_USEAUTH")
